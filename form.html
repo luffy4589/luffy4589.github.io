@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Feedback</title>
+    <script type="text/javascript">
+        function validateForm() {
+            var firstname = document.getElementById("f").value;
+            var lastname = document.getElementById("l").value;
+            var email = document.getElementById("email").value;
+            
+            if (/\d/.test(firstname) || /\d/.test(lastname)) {
+                alert("First name and last name should not contain any numbers!");
+                return false;
+            }
+
+            if (!validateEmail(email)) {
+                alert("Invalid email address!");
+                return false;
+            }
+            
+            return true;
+        }
+
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+    </script>
+    <style>
+        body {
+            font-size: x-large;
+            background-color: black;
+            color: greenyellow;
+        }
+
+        table {
+            font-size: 125%;
+        }
+
+        img {
+            width: 50%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1><strong>FILL OUT THE FORM</strong></h1>
+        <img
+            src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/anime-manga-word-text-tony-rubino.jpg">
+        <form onsubmit="return validateForm()" method="post">
+            <table>
+                <tr>
+                    <td>Firstname:</td>
+                    <td><input type="text" id="f" placeholder="Enter your Firstname"></td>
+                </tr>
+                <tr>
+                    <td>Lastname:</td>
+                    <td><input type="text" id="l" placeholder="Enter your Lastname"></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td><input type="text" id="email" placeholder="Enter your Email"></td>
+                </tr>
+                <tr>
+                    <td>Rate for Steins;Gate, if you have watched:</td>
+                    <td><input type="range" id="rating"></td>
+                </tr>
+
+                <tr>
+                    <td title="What kind of anime you like">Genre:</td>
+                    <td>
+                        <select id="genre">
+                            <option value="">---Select---</option>
+                            <option value="Adventure">---Adventure---</option>
+                            <option value="Action">---Action---</option>
+                            <option value="Horror">---Horror---</option>
+                            <option value="Sci-fi">---Sci-fi---</option>
+                            <option value="Fantasy">---Fantasy---</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Please tell us your favourite anime and a few words about it:</td>
+                    <td><textarea id="comment" cols="30" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Upload your fan anime art:</td>
+                    <td><input type="file" id="image" name="image"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit">&nbsp;<input type="reset"></td>
+                </tr>
+
+
+            </table>
+
+        </form>
+    </center>
+</body>
+
+</html>
